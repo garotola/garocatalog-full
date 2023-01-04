@@ -1,6 +1,8 @@
 package com.garosuperior.dscatalog.controllers;
 
 import com.garosuperior.dscatalog.entities.Category;
+import com.garosuperior.dscatalog.services.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,13 +14,12 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/categories")
 public class CategoryController {
+    @Autowired
+    private CategoryService service;
     @GetMapping()
     public ResponseEntity<List<Category>> findAll(){
         List<Category> categories = new ArrayList<>();
-
-        categories.add(new Category(1L, "Nova categoria"));
-        categories.add(new Category(2L, "Nova categoria 2"));
-
+        categories = service.findAll();
         return ResponseEntity.ok().body(categories);
     }
 
