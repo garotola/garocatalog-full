@@ -69,11 +69,11 @@ public class Product {
         this.price = price;
     }
 
-    public String getImgIrl() {
+    public String getImgUrl() {
         return imgUrl;
     }
 
-    public void setImgIrl(String imgUrl) {
+    public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
 
